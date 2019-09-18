@@ -1,0 +1,31 @@
+<% include ../partials/header_small %>
+
+    <!-- Wrapper -->
+    <section id="four" class="wrapper alt style1">
+        <div class="inner">
+
+            <h1 class="align-center">ADD NEW CAMP PLACE</h1>
+
+            <form method="post" action="/campgrounds">
+                <div class="fields">
+                    <div class="field">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" />
+                    </div>
+                    <div class="field">
+                        <label for="email">Description</label>
+                        <input type="text" name="desc" id="desc" />
+                    </div>
+                    <div class="field">
+                        <label for="email">Image</label>
+                        <input type="text" name="img" id="img" placeholder="best to use pic04 / pic05 / pic06 / pic07"/>
+                    </div>
+                </div>
+                <ul class="actions">
+                    <li><input type="submit" value="Send Message" /></li>
+                </ul>
+            </form>
+
+        </div>
+    </section>
+<% include ../partials/footer %>

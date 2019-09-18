@@ -1,0 +1,27 @@
+<% include ../partials/header_small %>
+
+    <!-- Wrapper -->
+    <section id="four" class="wrapper alt style1">
+        <div class="inner">
+
+            <h1 class="align-center">REGISTER</h1>
+
+            <form method="post" class="centered" action="/register">
+                <div class="fields">
+                    <div class="field">
+                        <label for="name">USER NAME</label>
+                        <input type="text" name="user[name]" id="name" />
+                    </div>
+                    <div class="field">
+                        <label for="email">PASSWORD</label>
+                        <input type="text" name="user[password]" id="password" />
+                    </div>
+                </div>
+                <ul class="actions">
+                    <li><input type="submit" value="register" /></li>
+                </ul>
+            </form>
+
+        </div>
+    </section>
+<% include ../partials/footer %>

@@ -1,0 +1,84 @@
+<% include ../partials/header_small %>
+
+    <!-- Wrapper -->
+    <section id="four" class="wrapper alt style1">
+        <div class="inner show-det">
+            <ul class="actions">
+
+                <li><a href='/campgrounds' class="button">Back to all camps</a></li>
+                <li><a href='/campgrounds/<%= foundCamp._id %>/edit' class="button secondary">edit</a></li>
+
+                <form action='/campgrounds/<%= foundCamp._id %>?_method=DELETE' method="POST">
+                    <li><button class="button warning">delete</button></li>
+                </form>
+
+            </ul>
+
+            <h3 class="major"><%= foundCamp.name %>  - DETAILS ON YOUR CAMPPLACE</h3>
+            <p>
+                
+                <span class="image left">
+                <img src='/<%= foundCamp.img %>' alt="" />
+                </span>
+                <%= foundCamp.desc %>
+                <!-- <ul class="alt">
+                        <li>Dolor pulvinar etiam.</li>
+                        <li>Sagittis adipiscing.</li>
+                        <li>Felis enim feugiat.</li>
+                    </ul> -->
+            </p>
+            
+            
+        </div>
+        <section>
+        <div class="inner">
+            
+            	<div class="table-wrapper">
+                        <table class="alt">
+                            <thead>
+                                <tr>
+                                    <!-- <th>Name</th> -->
+                                    <!-- <th>Description</th> -->
+                                    <!-- <th>Price</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Price</td>
+                                    <td>29.99 $ / night</td>
+                                </tr>
+                                <tr>
+                                    <td>Reviews</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>Rating</td>
+                                    <td>4 stars</td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                    </div>
+                    
+
+            <ul class="actions">
+
+                <form action='/campgrounds/<%= foundCamp._id %>/comments/new' method="GET">
+                    <li><button class="button secondary">add comment</button></li>
+                </form>
+
+            </ul>
+
+            <h4 class="major">comments</h4>
+
+            <% foundCamp.comments.forEach(comment => { %>
+                
+                <blockquote>
+                        <h5><%= comment.author %></h5>
+                    <%= comment.text %></blockquote>
+            <% }); %>
+
+        </div>
+        </section>
+    </section>
+<% include ../partials/footer %>

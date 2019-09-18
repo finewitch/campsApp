@@ -1,0 +1,38 @@
+<% include partials/header_big %>
+
+    <!-- Wrapper -->
+    <section id="wrapper">
+        <!-- Four -->
+        <section id="four" class="wrapper alt style1">
+                <div class="inner">
+                    <h2 class="major">All camps</h2>
+                    <p>Browse &nbsp;• &nbsp;Add &nbsp;• &nbsp;Remove &nbsp;•&nbsp;Manage your camps!</p>
+
+                    <ul class="actions">
+                        <li><a href='/campgrounds/new' class="button">Add new camp</a></li>
+                    </ul>
+
+                    <section class="features">
+
+                        <% campgrounds.forEach((camp)=>{ %>
+
+                        <article>
+                            <a class="image"><img src='/<%= camp['img'] %>' alt="" /></a>
+                            <h3 class="major"><%= camp['name'] %></h3>
+                            <p><%= camp['desc'] %></p>
+                            <a href="/campgrounds/<%= camp['_id'] %>" class="special">show details</a>
+                        </article>
+
+                        <% }) %>
+                       
+                    </section>
+                   
+                </div>
+            </section>
+    </section>
+
+<div>
+
+
+
+<% include partials/footer %>

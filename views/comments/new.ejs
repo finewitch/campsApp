@@ -1,0 +1,27 @@
+<% include ../partials/header_small %>
+
+    <!-- Wrapper -->
+    <section id="four" class="wrapper alt style1">
+        <div class="inner">
+
+            <h1 class="align-center">ADD NEW COMMENT TO <%= camp.name %></h1>
+
+            <form method="post" action="/campgrounds/<%= camp._id%>/comments">
+                <div class="fields">
+                    <div class="field">
+                        <label for="name">Author</label>
+                        <input type="text" name="comment[author]" id="author" />
+                    </div>
+                    <div class="field">
+                        <label for="email">Text</label>
+                        <input type="text" name="comment[text]" id="text" />
+                    </div>
+                </div>
+                <ul class="actions">
+                    <li><input type="submit" value="Send Comment" /></li>
+                </ul>
+            </form>
+
+        </div>
+    </section>
+<% include ../partials/footer %>

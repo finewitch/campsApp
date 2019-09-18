@@ -1,0 +1,35 @@
+<% include ../partials/header_small %>
+
+    <!-- Wrapper -->
+    <section id="four" class="wrapper alt style1">
+        <div class="inner">
+
+            <ul class="actions">
+                <li><a href='/campgrounds/<%= camp._id %>' class="button">back to camp view</a></li>
+            </ul>
+
+            <h1 class="major"><span class="secondary"><%= camp.name %> </span> - edit your camp place</h1>
+
+            <form method="POST" action='/campgrounds/<%= camp._id %>?_method=PUT'>
+                <div class="fields">
+                    <div class="field">
+                        <label for="name">Name</label>
+                        <input type="text" name="camp[name]" id="name" />
+                    </div>
+                    <div class="field">
+                        <label for="email">Description</label>
+                        <input type="text" name="camp[desc]" id="desc" />
+                    </div>
+                    <div class="field">
+                        <label for="email">Image</label>
+                        <input type="text" name="camp[img]" id="img" placeholder="best to use pic04 / pic05 / pic06 / pic07"/>
+                    </div>
+                </div>
+                <ul class="actions">
+                    <li><button type="submit" class="button secondary">update</button></li>
+                </ul>
+            </form>
+
+        </div>
+    </section>
+<% include ../partials/footer %>
