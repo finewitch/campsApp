@@ -18,8 +18,16 @@
                             <h1><a href="index.html">Your Camps</a></h1>
 
                             <nav>
-                                <a href="/login">login</a>
-                                <a href="/register">Sign Up</a>
+                                 <% if(!currentUser){ %>
+                                    <a href="/login">login</a>
+                                    <a href="/register">Sign Up</a>
+                                <% }else{ %>
+                                    <a class="user">SIGNED IN AS : 
+                                        <span><%=currentUser.username %> </span>
+                                    </a>
+                                    <a href="/logout">log out</a>
+
+                                <%} %>
                             </nav>
 
                         </header>

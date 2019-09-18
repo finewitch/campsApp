@@ -16,11 +16,20 @@
                         <header id="header" class="alt">
                             <h1><a href="index.html">Your Camps</a></h1>
                             <nav>
-                                <a href="#menu">Menu</a>
-                            </nav>
+                                    <% if(!currentUser){ %>
+                                       <a href="/login">login</a>
+                                       <a href="/register">Sign Up</a>
+                                   <% }else{ %>
+                                       <a class="user">SIGNED IN AS : 
+                                           <span><%=currentUser.username %> </span>
+                                       </a>
+                                       <a href="/logout">log out</a>
+   
+                                   <%} %>
+                               </nav>
                         </header>
     
-                    <!-- Menu -->
+                    <!-- Menu
                         <nav id="menu">
                             <div class="inner">
                                 <h2>Menu</h2>
@@ -33,17 +42,21 @@
                                 </ul>
                                 <a href="#" class="close">Close</a>
                             </div>
-                        </nav>
+                        </nav> -->
 
                     <!-- Banner -->
 					<section id="wrapper">
-                            <header>
-                                <div class="inner">
-                                    <h2>Mountains</h2>
-                                    <p>The top of one mountain is always the bottom of another - <strong>Marianne Williamson</strong></p>
-                                </div>
+                        <header>
+                            <div class="inner">
+                                <h2>Mountains</h2>
+                                <p>The top of one mountain is always the bottom of another - <strong>Marianne Williamson</strong></p>
+                                <ul class="actions">
+                                    <li><a href='/'' class="button">back to home page</a></li>
+                                </ul>
+                            </div>
                             </header>
                     </section>
+
     
                 
 

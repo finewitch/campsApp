@@ -2,3 +2,10 @@ form.centered{
     max-width: 600px;
     margin: 0 auto;
 }
+nav a.user{
+        font-weight:normal;
+}
+nav a.user span{
+    color: #5dc06b;
+    font-weight: bold;
+}
