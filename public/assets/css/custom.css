@@ -30,3 +30,16 @@ article .camp_creator{
     padding: 1px 10px;
     font-size: 1rem;
 }
+.comments-btns a{
+    height: 30px;
+    line-height: 1.9rem;
+    padding:0 13px;
+    font-size: .9rem;
+}
+.comments-btns blockquote{
+    margin: 0;
+}
+.comments-btns-group{
+    margin-top: 10px;
+    margin-bottom: 35px;
+}

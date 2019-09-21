@@ -23,7 +23,6 @@ router.post('/campgrounds', isLoggedIn, function(req, res){
     var name = req.sanitize(req.body.name);
     var desc = req.sanitize(req.body.desc);
     var img =  req.sanitize(req.body.img);
-    console.log(req.body, '<----what???');
 
     var newCampground = {
         name: name, 
@@ -52,7 +51,6 @@ router.get('/campgrounds/:id/edit', function(req, res){
 
     var campId = req.params.id;
 
-    var campId = req.params.id;
     Campground.findById(campId, function(err, camp){
         if(err){
             console.log('error with get')
@@ -65,7 +63,7 @@ router.get('/campgrounds/:id/edit', function(req, res){
 })
 //UPDATE
 router.put('/campgrounds/:id', function(req, res){
-    console.log(req.body.camp, '<--camp here')
+    // console.log(req.body.camp, '<--camp here')
 
     var campId = req.params.id;
 
@@ -120,7 +118,7 @@ router.get('/campgrounds/:id', function(req, res){
         if(err){
             console.log('error with get', err)
         }else{
-            console.log(foundCamp)
+            // console.log(foundCamp, 'FOUND CAMP!!>>>>>>>>>')
             res.render('campgrounds/show', {foundCamp})
         }
     })
@@ -134,7 +132,7 @@ router.get('*', function(req, res){
 })
 
 function isLoggedIn(req, res, next){
-    console.log(req.isAuthenticated(), '<----')
+    // console.log(req.isAuthenticated(), '<----')
     if(req.isAuthenticated()){
 
        return next();

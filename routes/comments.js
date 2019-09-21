@@ -43,6 +43,41 @@ router.post('/campgrounds/:id/comments', function(req, res){
     })
 })
 
+//EDIT COMMENT
+router.get('/campgrounds/:id/comments/:comment_id/edit', function(req, res){
+    
+    var campId = req.params.id;
+    var commentId = req.params.comment_id;
+    
+    Comment.findById(commentId, function(err, comment){
+        if(err){
+            console.log('error while editting comment', err);
+        }else{
+            res.render('comments/edit', {comment, campId});
+        }
+
+    })
+
+})
+
+//UPDATE COMMENT
+router.put('/campgrounds/:id/comments/:comment_id', function(req, res){
+
+    var commentId = req.params.comment_id;
+    var data = req.body.comment;
+    var campId = req.params.id;
+
+    Comment.findByIdAndUpdate(commentId, data, function(err, updateComment){
+        if(err){
+            console.log('error with get')
+        }else{
+            console.log('cmt udated!>>:', updateComment);
+            res.redirect('/campgrounds/' + campId)
+        }
+    })
+ 
+})
+
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
 

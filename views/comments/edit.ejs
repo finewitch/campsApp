@@ -1,0 +1,25 @@
+<% include ../partials/header_small %>
+
+    <!-- Wrapper -->
+    <section id="four" class="wrapper alt style1">
+        <div class="inner">
+
+            <h1 class="align-center">edit comment</h1>
+
+            <form class="centered" method="post" action='/campgrounds/<%= campId %>/comments/<%= comment._id%>?_method=PUT'>
+                <div class="fields">
+                    <div class="field">
+                        <label for="text">Comment</label>
+                        <textarea type="text" name="comment[text]" id="text" value='<%= comment.text %>'></textarea>
+                    </div>
+                </div>
+
+                <ul class="actions">
+                    <li><input class="secondary" type="submit" value="Update Comment" /></li>
+                </ul>
+
+            </form>
+
+        </div>
+    </section>
+<% include ../partials/footer %>
