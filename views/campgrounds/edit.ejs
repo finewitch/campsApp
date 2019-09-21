@@ -2,7 +2,7 @@
 
     <!-- Wrapper -->
     <section id="four" class="wrapper alt style1">
-        <div class="inner">
+        <div class="inner edit">
 
             <ul class="actions">
                 <li><a href='/campgrounds/<%= camp._id %>' class="button">back to camp view</a></li>
@@ -14,15 +14,20 @@
                 <div class="fields">
                     <div class="field">
                         <label for="name">Name</label>
-                        <input type="text" name="camp[name]" id="name" />
+                        <input type="text" name="camp[name]" id="name" value=<%= camp.name %>/>
                     </div>
                     <div class="field">
                         <label for="email">Description</label>
-                        <input type="text" name="camp[desc]" id="desc" />
+                        <input type="text" name="camp[desc]" id="desc" value="<%= camp.desc %>"/>
                     </div>
                     <div class="field">
                         <label for="email">Image</label>
-                        <input type="text" name="camp[img]" id="img" placeholder="best to use pic04 / pic05 / pic06 / pic07"/>
+                        <select name="camp[img]">
+                                <option value="pic04">exmple 1</option>
+                                <option value="pic05">example 2</option>
+                                <option value="pic06">example 3</option>
+                            </select>
+                            <P>Choose from the ones provided</P>
                     </div>
                 </div>
                 <ul class="actions">

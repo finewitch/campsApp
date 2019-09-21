@@ -6,7 +6,7 @@
 
             <h1 class="align-center">ADD NEW CAMP PLACE</h1>
 
-            <form method="post" action="/campgrounds">
+            <form class="centered" method="post" action="/campgrounds">
                 <div class="fields">
                     <div class="field">
                         <label for="name">Name</label>
@@ -18,7 +18,13 @@
                     </div>
                     <div class="field">
                         <label for="email">Image</label>
-                        <input type="text" name="img" id="img" placeholder="best to use pic04 / pic05 / pic06 / pic07"/>
+                        <select name="img">
+                            <option value="pic04">exmple 1</option>
+                            <option value="pic05">example 2</option>
+                            <option value="pic06">example 3</option>
+                        </select>
+                        <P>Choose from the ones provided</P>
+                        <!-- <input type="text" name="img" id="img" placeholder="best to use pic04 / pic05 / pic06 / pic07"/> -->
                     </div>
                 </div>
                 <ul class="actions">

@@ -5,7 +5,7 @@
         <div class="inner show-det">
             <ul class="actions">
 
-                <li><a href='/campgrounds' class="button">Back to all camps</a></li>
+                <li><a href='/' class="button">Back to all camps</a></li>
                 <li><a href='/campgrounds/<%= foundCamp._id %>/edit' class="button secondary">edit</a></li>
 
                 <form action='/campgrounds/<%= foundCamp._id %>?_method=DELETE' method="POST">
@@ -14,18 +14,13 @@
 
             </ul>
 
-            <h3 class="major"><%= foundCamp.name %>  - DETAILS ON YOUR CAMPPLACE</h3>
+            <h3 class="major"><%= foundCamp.name %>  - camp details <span class="submitted">submitted by: <b><%= foundCamp.author.username %></b></span></h3>
             <p>
                 
                 <span class="image left">
-                <img src='/<%= foundCamp.img %>' alt="" />
+                <img src='/images/<%= foundCamp.img %>.jpg' alt="" />
                 </span>
                 <%= foundCamp.desc %>
-                <!-- <ul class="alt">
-                        <li>Dolor pulvinar etiam.</li>
-                        <li>Sagittis adipiscing.</li>
-                        <li>Felis enim feugiat.</li>
-                    </ul> -->
             </p>
             
             
@@ -74,8 +69,9 @@
             <% foundCamp.comments.forEach(comment => { %>
                 
                 <blockquote>
-                        <h5><%= comment.author %></h5>
-                    <%= comment.text %></blockquote>
+                    <h5><%= comment.author.username %></h5>
+                    <%= comment.text %>
+                </blockquote>
             <% }); %>
 
         </div>

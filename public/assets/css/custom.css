@@ -9,3 +9,24 @@ nav a.user span{
     color: #5dc06b;
     font-weight: bold;
 }
+span.user{
+    color: #5dc06b;
+    font-weight: bold;
+}
+h1 span, h2 span, h3 span{
+    float: right
+}
+.edit h1 span, h2 span, h3 span{
+    float: left;
+}
+span.submitted{
+    float: right;
+
+}
+
+article .camp_creator{
+    background: #178996;
+    float: right;
+    padding: 1px 10px;
+    font-size: 1rem;
+}

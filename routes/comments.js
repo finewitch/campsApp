@@ -23,13 +23,19 @@ router.post('/campgrounds/:id/comments', function(req, res){
         if(err){
             console.log('error in comment, find by id', err)
         }else{
-            console.log(camp, 'camp founded!!!')
+            // console.log(camp, 'camp founded!!!')
             Comment.create(req.body.comment, function(err, comment){
                 if(err){
                     console.log('err from comment', err);
                 }else{
+                    comment.author.id = req.user._id;
+                    comment.author.username = req.user.username;
+                    // console.log('user goes here', req.user.username)
+                    comment.save();
                     camp.comments.push(comment);
                     camp.save();
+
+                    console.log(comment, 'comment here')
                     res.redirect('/campgrounds/' + campId)
                 }
             })

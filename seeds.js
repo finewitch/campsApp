@@ -6,12 +6,18 @@ var data = [
     {
         name: 'Example camp1',
         desc: "That's my fav camp in the Rila Mountains",
-        img : 'images/pic04.jpg'
+        img : 'pic04',
+        author:{
+            username: 'yolo'
+        }
     },
     {
         name: 'Example camp2',
         desc: "That's my fav camp in the OCHRA Lake",
-        img : 'images/pic05.jpg'
+        img : 'pic05',
+        author:{
+            username: 'Adam1'
+        }
     },
 ]
 function seedDB(){
@@ -20,8 +26,8 @@ function seedDB(){
         if(err){
             console.log('error from seeds.js')
         }
-            console.log('all removed!')
-            console.log('preaparing to add new ones .....');
+            console.log('ALL DATA REMOVED THANKS TO SEED')
+            console.log('CLEAN ONES COMMING ..... ...... ......');
 
             data.forEach(function(camp){
 
@@ -35,8 +41,11 @@ function seedDB(){
 
                     Comment.create({
                         text: "first comment",
-                        author: "HOmer"
+                        author:{
+                            username: 'Homer',
+                        }
                     }, function(err, comment){
+                        console.log('comment created', comment)
             
                         if(err){
                          console.log('error while adding comment in seed.js')
