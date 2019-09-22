@@ -36,10 +36,59 @@ article .camp_creator{
     padding:0 13px;
     font-size: .9rem;
 }
+.comments-btns form{
+    display: inline;
+}
+.comments-btns form input{
+    height: 30px;
+    line-height: 1.9rem;
+    padding:0 13px;
+    font-size: .9rem;
+    margin-left: 10px;
+}
 .comments-btns blockquote{
     margin: 0;
 }
 .comments-btns-group{
     margin-top: 10px;
     margin-bottom: 35px;
+}
+.flashmess{
+    /* height: 100px; */
+    width: 300px;
+    border-radius: 10px;
+    margin:0 auto;
+    opacity:1;
+    animation-name: fadeOUT;
+    animation-duration: 4.5s;
+    -webkit-animation-fill-mode: forwards;
+    margin-top: 20px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.flashmess.info{
+    background: #4c5c96;
+}
+.flashmess.success{
+    background: #3d7d47;
+}
+@keyframes fadeOUT {
+    from {opacity:1; margin-top:20;}
+    to {opacity:0; margin-top:0;}   
+}
+
+/* //info */
+.infobar{
+    background: rgba(255, 255, 255, 0.025);
+    border-radius: 5px;
+    border: none;
+    border: solid 2px rgba(255, 255, 255, 0.125);
+    margin: 0 auto;
+    max-width: 600px;
+    margin-top: 100px;
+    padding: 20px;
 }

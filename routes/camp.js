@@ -1,6 +1,7 @@
 var express =       require("express"),
 router=             express.Router(),
-Campground=               require("../models/campground");
+Campground=         require("../models/campground"),
+middleware =        require('../middleware');
 
 router.get('/', function(req, res){
 
@@ -19,7 +20,7 @@ router.get('/', function(req, res){
 })
 
 //CREATE
-router.post('/campgrounds', isLoggedIn, function(req, res){
+router.post('/campgrounds', middleware.isLoggedIn, function(req, res){
     var name = req.sanitize(req.body.name);
     var desc = req.sanitize(req.body.desc);
     var img =  req.sanitize(req.body.img);
@@ -104,7 +105,7 @@ router.delete('/campgrounds/:id', function(req, res){
 })
 
 //NEW
-router.get('/campgrounds/new',isLoggedIn,  function(req, res){
+router.get('/campgrounds/new',middleware.isLoggedIn,  function(req, res){
 
     res.render('campgrounds/new')
 
@@ -131,14 +132,5 @@ router.get('*', function(req, res){
 
 })
 
-function isLoggedIn(req, res, next){
-    // console.log(req.isAuthenticated(), '<----')
-    if(req.isAuthenticated()){
-
-       return next();
-    }
-    res.redirect('/login')
-    
-}
 
 module.exports = router;

@@ -59,7 +59,7 @@
 
             </ul>
 
-            <h4 class="major">comments</h4>
+            <h4 class="major">comments: <%=foundCamp.comments.length %></h4>
 
             <% foundCamp.comments.forEach(comment => { %>
                 <div class="comments-btns">
@@ -70,7 +70,9 @@
                     </blockquote>
                     <div class="comments-btns-group">
                         <a href="/campgrounds/<%=foundCamp._id%>/comments/<%=comment._id%>/edit" class="button secondary">edit</a>
-                        <a href="/campgrounds/:id/comments/:comment_id/" class="button warning">delete</a>
+                        <form method="post" action="/campgrounds/<%= foundCamp._id %>/comments/<%=comment._id%>?_method=DELETE">
+                            <input type="submit" class="button warning" value="delete"></a>
+                        </form>
                     </div>
                 </div>
             <% }); %>

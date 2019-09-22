@@ -27,6 +27,21 @@
    
                                    <%} %>
                                </nav>
+                            <% if(info && info.length > 0){ %>
+
+                                <div class="flashmess info">
+                                    <%= info %>
+                                </div>
+
+                            <% } else if (success && success.length > 0){ %>
+
+                                <div class="flashmess success">
+                                    <%= success %>
+                                </div>
+
+                            <% } %>
+
+                            
                         </header>
     
                     <!-- Menu
@@ -56,6 +71,8 @@
                             </div>
                             </header>
                     </section>
+
+                    
 
     
                 

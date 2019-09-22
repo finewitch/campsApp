@@ -1,11 +1,12 @@
 var express =       require("express"),
 router=             express.Router(),
 Campground=               require("../models/campground");
-Comment=               require("../models/comment");
+Comment=               require("../models/comment"),
+middleware =        require('../middleware');
 
 
 
-router.get('/campgrounds/:id/comments/new', isLoggedIn,  function(req, res){
+router.get('/campgrounds/:id/comments/new', middleware.isLoggedIn,  function(req, res){
     var campId = req.params.id;
     Campground.findById(campId).populate('comments').exec(function(err, camp){
         if(err){
@@ -78,13 +79,19 @@ router.put('/campgrounds/:id/comments/:comment_id', function(req, res){
  
 })
 
-function isLoggedIn(req, res, next){
-    if(req.isAuthenticated()){
+//DELETE--------
+router.delete('/campgrounds/:id/comments/:comment_id', function(req,res){
+    var commentId = req.params.comment_id;
+    Comment.findByIdAndDelete(commentId, function(err, deletedComment){
+        if(err){
+            console.log('error with get', err)
+        }else{
+            console.log('comment deleted')
+            req.flash("success", "comment deleted");
+            res.redirect('/campgrounds/' + req.params.id)
+        }
+    })
+})
 
-       return next();
-    }
-    res.redirect('/login')
-    
-}
 
 module.exports = router;

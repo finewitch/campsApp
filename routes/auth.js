@@ -12,7 +12,7 @@ router.get('/secret', function(req, res){
 
 //LOGIN========//
 router.get('/login', function(req, res){
-    console.log('/login, get')
+    // console.log('/login, get')
     res.render('user/login')
 })
 router.post('/login', passport.authenticate("local", {
@@ -51,15 +51,5 @@ router.get('/logout', function(req, res){
     req.logout();
     res.redirect('/')
 })
-
-function isLoggedIn(req, res, next){
-    console.log(req.isAuthenticated(), '<----')
-    if(req.isAuthenticated()){
-
-       return next();
-    }
-    res.redirect('/login')
-    
-}
 
 module.exports = router;

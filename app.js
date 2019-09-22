@@ -5,6 +5,7 @@ passport =          require("passport"),
 LocalStrategy =     require("passport-local"),
 methodOverride =    require("method-override"),
 bodyParser =        require("body-parser"),
+flash =             require("connect-flash"),
 
 Campground=         require("./models/campground"),
 Comment=            require("./models/comment"),
@@ -32,6 +33,7 @@ app.use(require('express-session')(
 ))
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(flash())
 
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended : true}))
@@ -41,6 +43,8 @@ app.use(methodOverride('_method'))
 
 app.use(function(req,res,next){
     res.locals.currentUser = req.user;
+    res.locals.info = req.flash("info");
+    res.locals.success = req.flash("success");
     next();
 })
 
