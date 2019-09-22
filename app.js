@@ -58,6 +58,8 @@ passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
-app.listen(3000, function(){
+
+var port = process.env.port || 3000;
+app.listen(port, function(){
         console.log('server runs')
 })
