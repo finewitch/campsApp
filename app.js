@@ -17,7 +17,7 @@ var authRoutes =require("./routes/auth"),
 commentRoutes=  require("./routes/comments"),
 campRoutes=     require("./routes/camp");
 
-seedDB();
+// seedDB();
 mongoose.connect("mongodb://localhost/campgroups", 
 { useNewUrlParser: true,
 useUnifiedTopology: true })
