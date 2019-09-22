@@ -59,7 +59,7 @@ passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
 
-var port = process.env.PORT || 8080;
-app.listen(port, function(){
+const PORT = process.env.PORT || 5000
+app.listen(PORT, function(){
         console.log('server runs')
 })
