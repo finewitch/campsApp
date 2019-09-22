@@ -18,9 +18,10 @@ commentRoutes=  require("./routes/comments"),
 campRoutes=     require("./routes/camp");
 
 // seedDB();
-mongoose.connect("mongodb://localhost/campgroups", 
+mongoose.connect("mongodb+srv://finewitch:daniel.6.@campgrounds-ljjmm.mongodb.net/test?retryWrites=true&w=majority", 
 { useNewUrlParser: true,
 useUnifiedTopology: true })
+
  
 app = express(),
 
