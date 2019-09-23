@@ -17,7 +17,7 @@ var authRoutes =require("./routes/auth"),
 commentRoutes=  require("./routes/comments"),
 campRoutes=     require("./routes/camp");
 
-// seedDB();
+seedDB();
 // mongoose.connect(, 
 // { useNewUrlParser: true,
 // useUnifiedTopology: true })
@@ -27,7 +27,7 @@ mongoose.connect("mongodb+srv://finewitch:daniel.6.@campgrounds-ljjmm.mongodb.ne
       .catch(err => console.log(`Database connection error: ${err.message}`));
 
  
-app = express(),
+app = express();
 
 app.use(require('express-session')(
     {
