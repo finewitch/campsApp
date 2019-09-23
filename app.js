@@ -20,9 +20,7 @@ commentRoutes=  require("./routes/comments"),
 campRoutes=     require("./routes/camp");
 
 // seedDB();
-// mongoose.connect(, 
-// { useNewUrlParser: true,
-// useUnifiedTopology: true })
+
 
 mongoose.connect(process.env.MONGOLAB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
       .then(() => console.log(`Database connected`))
