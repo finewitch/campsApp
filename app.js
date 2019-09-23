@@ -24,7 +24,7 @@ campRoutes=     require("./routes/camp");
 // { useNewUrlParser: true,
 // useUnifiedTopology: true })
 
-mongoose.connect("mongodb+srv://finewitch:daniel.6.@campgrounds-ljjmm.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGOLAB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
       .then(() => console.log(`Database connected`))
       .catch(err => console.log(`Database connection error: ${err.message}`));
 
