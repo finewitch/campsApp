@@ -6,6 +6,8 @@ LocalStrategy =     require("passport-local"),
 methodOverride =    require("method-override"),
 bodyParser =        require("body-parser"),
 flash =             require("connect-flash"),
+session =           require('express-session');
+MongoStore =        require('connect-mongo')(session);
 
 Campground=         require("./models/campground"),
 Comment=            require("./models/comment"),
@@ -29,11 +31,12 @@ mongoose.connect("mongodb+srv://finewitch:daniel.6.@campgrounds-ljjmm.mongodb.ne
  
 app = express();
 
-app.use(require('express-session')(
+app.use(session(
     {
         secret : 'abracadabra',
         resave: false,
-        saveUninitialized: false 
+        saveUninitialized: false,
+        store: new MongoStore({ mongooseConnection: mongoose.connection })
     }
 ))
 app.use(passport.initialize())
