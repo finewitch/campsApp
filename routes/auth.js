@@ -49,6 +49,7 @@ router.post('/register', function(req, res){
 //LOGOUT =======//
 router.get('/logout', function(req, res){
     req.logout();
+    req.flash("info", "You've log out");
     res.redirect('/')
 })
 

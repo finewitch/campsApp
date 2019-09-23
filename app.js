@@ -19,10 +19,25 @@ var authRoutes =require("./routes/auth"),
 commentRoutes=  require("./routes/comments"),
 campRoutes=     require("./routes/camp");
 
-// seedDB();
+seedDB();
 
+var mode,
+    port,
+    db;
 
-mongoose.connect(process.env.MONGOLAB_URI, 
+//---------------SET THE MODE -------------//
+
+mode = 'prod'
+
+    if(mode === 'dev'){
+        db = 'mongodb://localhost/campgroups';
+        port = 3000;
+    }else{
+        db = process.env.MONGOLAB_URI;
+        port = process.env.PORT;
+    }
+
+mongoose.connect( db , 
     {   useNewUrlParser: true, 
         useUnifiedTopology: true }
     )
@@ -61,13 +76,11 @@ app.use(authRoutes);
 app.use(commentRoutes);
 app.use(campRoutes);
 
-
 passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
 
-
-app.listen(process.env.PORT, function(){
+app.listen(port, function(){
         console.log('server runs')
 })

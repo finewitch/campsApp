@@ -1,17 +1,14 @@
 <html>
-	<head>
-		<title>Solid State by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="/assets/css/main.css" />
-        <link rel="stylesheet" href="/assets/css/custom.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-    </head>
+        <%quotes = [{author: "Ralph Waldo Emerson",text: 'Adopt the pace of nature: her secret is patience'},{author: "Henry David Thoreau", text: 'There are moments when all anxiety and stated toil are becalmed in the infinite leisure and repose of nature'},{author: "Claude Monet", text:'My wish is to stay always like this, living quietly in a corner of nature.'},{author: "Marie Curie", text:'All my life through, the new sights of Nature made me rejoice like a child.'},{author: "Helen Keller", text:'To me a lush carpet of pine needles or spongy grass is more welcome than the most luxurious Persian rug.'},{author: "Ruskin Bond", text:'I get inspiration from a lot of things around me - nature, hills, people, and even insects.'},{author: "Robert Browning", text:'I trust in nature for the stable laws of beauty and utility. Spring shall plant and autumn garner to the end of time.'}] %>
+
+        <% num = Math.floor(Math.random() * 7);%>
+        
+    <% include ./head %>
+    
     <body class="is-preload">
 
             <!-- Page Wrapper -->
 			<div id="page-wrapper">
-
                     <!-- Header -->
                         <header id="header" class="alt">
                             <h1><a href="index.html">Your Camps</a></h1>
@@ -43,28 +40,13 @@
 
                             
                         </header>
-    
-                    <!-- Menu
-                        <nav id="menu">
-                            <div class="inner">
-                                <h2>Menu</h2>
-                                <ul class="links">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="generic.html">Generic</a></li>
-                                    <li><a href="elements.html">Elements</a></li>
-                                    <li><a href="#">Log In</a></li>
-                                    <li><a href="#">Sign Up</a></li>
-                                </ul>
-                                <a href="#" class="close">Close</a>
-                            </div>
-                        </nav> -->
 
                     <!-- Banner -->
 					<section id="wrapper">
                         <header>
                             <div class="inner">
-                                <h2>Mountains</h2>
-                                <p>The top of one mountain is always the bottom of another - <strong>Marianne Williamson</strong></p>
+                                <h2>Nature</h2>
+                                <p><%=quotes[num]['text']%>- <strong><%=quotes[num]['author']%></strong></p>
                                 <ul class="actions">
                                     <li><a href='/'' class="button">back to home page</a></li>
                                 </ul>
