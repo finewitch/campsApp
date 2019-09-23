@@ -21,11 +21,10 @@ campRoutes=     require("./routes/camp");
 
 // seedDB();
 
-
+// ..
 mongoose.connect(process.env.MONGOLAB_URI, 
     {   useNewUrlParser: true, 
-        useUnifiedTopology: true,
-        useMongoClient : true,
+        useUnifiedTopology: true
     }
     )
       .then(() => console.log(`Database connected`))
