@@ -67,6 +67,6 @@ passport.deserializeUser(User.deserializeUser())
 
 
 
-app.listen(process.env.PORT, '0.0.0.0', function(){
+app.listen(process.env.PORT, function(){
         console.log('server runs')
 })
