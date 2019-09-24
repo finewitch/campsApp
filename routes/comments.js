@@ -12,7 +12,7 @@ router.get('/campgrounds/:id/comments/new', middleware.isLoggedIn,  function(req
         if(err){
             console.log('error with get', err)
         }else{
-            console.log(camp)
+            // req.flash({'info': 'ddddd'})
             res.render('comments/new', {camp})
         }
     })
@@ -49,13 +49,23 @@ router.get('/campgrounds/:id/comments/:comment_id/edit', function(req, res){
     
     var campId = req.params.id;
     var commentId = req.params.comment_id;
+
+    console.log('currentUser', req.user.username)
     
     Comment.findById(commentId, function(err, comment){
-        if(err){
-            console.log('error while editting comment', err);
-        }else{
-            res.render('comments/edit', {comment, campId});
-        }
+        // console.log(comment)
+        // if(comment.author.username != req.user.username){
+        //     // req.flash("error", "You c");
+        //     res.redirect('/campgrounds/' + campId)
+        // }else{
+
+            if(err){
+                console.log('error while editting comment', err);
+            }else{
+                res.render('comments/edit', {comment, campId});
+            }
+
+        // }
 
     })
 
@@ -80,14 +90,14 @@ router.put('/campgrounds/:id/comments/:comment_id', function(req, res){
 })
 
 //DELETE--------
-router.delete('/campgrounds/:id/comments/:comment_id', function(req,res){
+router.delete('/campgrounds/:id/comments/:comment_id', middleware.isLoggedIn, function(req,res){
     var commentId = req.params.comment_id;
     Comment.findByIdAndDelete(commentId, function(err, deletedComment){
         if(err){
             console.log('error with get', err)
         }else{
             console.log('comment deleted')
-            req.flash("success", "comment deleted");
+              req.flash("success", "Comment deleted");
             res.redirect('/campgrounds/' + req.params.id)
         }
     })

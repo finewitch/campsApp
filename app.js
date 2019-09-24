@@ -19,7 +19,7 @@ var authRoutes =require("./routes/auth"),
 commentRoutes=  require("./routes/comments"),
 campRoutes=     require("./routes/camp");
 
-seedDB();
+// seedDB();
 
 var mode,
     port,
@@ -69,6 +69,7 @@ app.use(function(req,res,next){
     res.locals.currentUser = req.user;
     res.locals.info = req.flash("info");
     res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
     next();
 })
 

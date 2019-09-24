@@ -12,12 +12,15 @@ router.get('/secret', function(req, res){
 
 //LOGIN========//
 router.get('/login', function(req, res){
-    // console.log('/login, get')
+    
     res.render('user/login')
 })
 router.post('/login', passport.authenticate("local", {
     successRedirect : "/",
-    failureRedirect : "/login"
+    failureRedirect : "/login",
+    failureFlash: true,
+    failureFlash: 'Invalid username or password',
+    successFlash: 'Succesfully loged in'
 }),   function(req, res){
     console.log('POST LOGIN')
     // res.render('user/register')
@@ -40,7 +43,7 @@ router.post('/register', function(req, res){
             passport.authenticate("local")(req, res, function(){
                 res.redirect('/')
             })
-            console.log(user)
+            // console.log(user)
         }
     })
     // res.render('user/register')

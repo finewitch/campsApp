@@ -10,7 +10,7 @@ router.get('/', function(req, res){
         if(err){
             console.log('error with get')
         }else{
-            console.log('get request, "/" ')
+            console.log('get request, "/" ', campgrounds)
             res.render('landing', { campgrounds })
         }
     

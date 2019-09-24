@@ -36,9 +36,11 @@
                                     <%= success %>
                                 </div>
 
-                            <% } %>
-
-                            
+                            <% } else if (error && error.length > 0){ %>
+                                <div class="flashmess error">
+                                        <%= error %>
+                                </div>
+                                <% }%>
                         </header>
 
                     <!-- Banner -->

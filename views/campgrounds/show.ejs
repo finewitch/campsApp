@@ -45,12 +45,15 @@
                         <%= comment.text %>
 
                     </blockquote>
-                    <div class="comments-btns-group">
-                        <a href="/campgrounds/<%=foundCamp._id%>/comments/<%=comment._id%>/edit" class="button secondary">edit</a>
-                        <form method="post" action="/campgrounds/<%= foundCamp._id %>/comments/<%=comment._id%>?_method=DELETE">
-                            <input type="submit" class="button warning" value="delete"></a>
-                        </form>
-                    </div>
+                    <% if(comment.author.username === currentUser.username){ %>
+
+                        <div class="comments-btns-group">
+                            <a href="/campgrounds/<%=foundCamp._id%>/comments/<%=comment._id%>/edit" class="button secondary">edit</a>
+                            <form method="post" action="/campgrounds/<%= foundCamp._id %>/comments/<%=comment._id%>?_method=DELETE">
+                                <input type="submit" class="button warning" value="delete"></a>
+                            </form>
+                        </div>
+                   <% } %>
                 </div>
             <% }); %>
 

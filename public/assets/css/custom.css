@@ -69,12 +69,16 @@ article .camp_creator{
     padding: 20px;
     text-align: center;
     text-transform: uppercase;
+    line-height: 2rem;
 }
 .flashmess.info{
     background: #4c5c96;
 }
 .flashmess.success{
     background: #3d7d47;
+}
+.flashmess.error{
+    background: #ca3e3e;
 }
 @keyframes fadeOUT {
     from {opacity:1; margin-top:20;}
